@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
+    "typeorm": "ts-node-dev node_modules/.bin/typeorm",
     "dev": "ts-node-dev -r --respawn --transpileOnly --ignore-watch node_modules src/server.ts",
     "test": "jest"
   },
@@ -30,6 +31,9 @@
   },
   "dependencies": {
     "@types/mocha": "^9.1.0",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   }
 }
