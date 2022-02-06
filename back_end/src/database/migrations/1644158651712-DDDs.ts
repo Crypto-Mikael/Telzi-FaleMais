@@ -11,6 +11,7 @@ export class DDDs1644158651712 implements MigrationInterface {
                 name: "idDDDs",
                 type: "int",
                 isPrimary: true,
+                isUnique: true,
                 isNullable: false,
               },
               {
