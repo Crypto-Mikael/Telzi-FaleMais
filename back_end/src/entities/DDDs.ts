@@ -1,11 +1,15 @@
-import { Entity, Column, PrimaryColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("DDDs")
-export class DDDs {
-  @PrimaryColumn('increment')
-  idDDDs: number;
+export default class DDDs {
+
+  constructor(description: string) {
+    this.description = description
+  }
+
+  @PrimaryGeneratedColumn('increment')
+  id_DDDs: number;
 
   @Column()
-  Descricao: string;
-
+  description: string;
 }

@@ -8,16 +8,16 @@ export class DDDs1644158651712 implements MigrationInterface {
             name: "DDDs",
             columns: [
               {
-                name: "idDDDs",
+                name: "id_DDDs",
                 type: "int",
+                isGenerated: true,
+                generationStrategy: "increment",
                 isPrimary: true,
-                isUnique: true,
-                isNullable: false,
               },
               {
-                name: "Descricao",
+                name: "description",
                 type: "varchar(45)",
-                isNullable: false,
+                isNullable: true,
               },
             ],
           })

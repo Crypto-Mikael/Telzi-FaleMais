@@ -7,7 +7,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node dist/server.js",
     "typeorm": "ts-node-dev node_modules/.bin/typeorm",
-    "dev": "ts-node-dev -r --respawn --transpileOnly --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
     "test": "jest"
   },
   "devDependencies": {

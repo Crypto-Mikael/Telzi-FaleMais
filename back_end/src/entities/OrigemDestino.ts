@@ -1,18 +1,30 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm";
-import { DDDs } from "./DDDs";
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import DDDs from "./DDDs";
 
-@Entity("OrigemDestino")
-export class OrigemDestino {
-  @PrimaryColumn("increment")
-  idOrigemDestino: number;
+@Entity("origin_destiny")
+export default class OrigemDestino {
+  constructor(origin: string, destiny: string, value: number) {
+    this.origin = origin;
+    this.destiny = destiny;
+    this.value = value;
+  }
+
+  @PrimaryGeneratedColumn("increment")
+  id_origin_destiny: number;
 
   @Column()
-  Origem: string;
+  origin: string;
 
   @ManyToOne(() => DDDs)
   @JoinColumn({ name: "idDDDs" })
-  Destino: string;
+  destiny: string;
 
   @ManyToOne(() => DDDs)
-  Valor: number;
+  value: number;
 }
