@@ -17,7 +17,7 @@ export class DDDs1644158651712 implements MigrationInterface {
               {
                 name: "description",
                 type: "varchar(45)",
-                isNullable: true,
+                isNullable: false,
               },
             ],
           })

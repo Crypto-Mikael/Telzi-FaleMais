@@ -4,29 +4,29 @@ export class OriginDescription1644176814383 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "origin_destiny",
+        name: "Origin_destiny",
         columns: [
           {
             name: "id_origin_destiny",
             type: "int",
             isGenerated: true,
             generationStrategy: "increment",
-            isPrimary: true,
+            isPrimary: false,
           },
           {
             name: "origin",
             type: "int",
-            isNullable: true,
+            isNullable: false,
           },
           {
             name: "destiny",
             type: "int",
-            isNullable: true,
+            isNullable: false,
           },
           {
             name: "value",
             type: "float",
-            isNullable: true,
+            isNullable: false,
           },
         ],
         foreignKeys: [
@@ -48,6 +48,6 @@ export class OriginDescription1644176814383 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("origin_destiny");
+    await queryRunner.dropTable("Origin_destiny");
   }
 }
