@@ -32,7 +32,7 @@ export default class DDDsModel {
   async executeUpdateDDD({ id_DDDs, description }: DDDsRequest) {
     const repo = getRepository(DDDs);
 
-    const DDD = await repo.findOne({ description })
+    const DDD = await repo.findOne({ id_DDDs });
 
     if (!DDD) {
       return new Error("DDD not finded");

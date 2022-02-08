@@ -8,7 +8,7 @@ const createMyScript = async () => {
   const password = file2.split("\n")[3].slice(17);
   if (!file) {
     const pathSchema =
-      'pathSchema=${PWD}"/back_end/src/tests/mocks/default_database.sql"\n';
+      'pathSchema=${PWD}"/src/tests/mocks/default_database.sql"\n';
     const mysqlCommand = `mysql --user="${user}" --password="${password}" < $pathSchema`;
     fs.writeFileSync("mysqlQuery.sh", pathSchema.concat(mysqlCommand));
   }

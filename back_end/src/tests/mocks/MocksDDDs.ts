@@ -17,5 +17,14 @@ const defaultAPI = [
   },
 ];
 
- 
-export { defaultAPI };
+const addedAPI = defaultAPI.concat({
+    description: "019",
+    id_DDDs: 5,
+});
+
+const updatedAPI = defaultAPI.concat({
+    description: "020",
+    id_DDDs: 5,
+});
+
+export { defaultAPI, addedAPI, updatedAPI };

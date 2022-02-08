@@ -33,7 +33,7 @@ export default class DDDsController {
   async update_DDD(req: Request, res: Response) {
     const { description } = req.body;
     const { id } = req.params;
-
+    
     const id_DDDs = Number(id);
 
     const model = new DDDsModel();
