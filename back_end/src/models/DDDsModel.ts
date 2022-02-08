@@ -14,10 +14,10 @@ export default class DDDsModel {
       return new Error("description already exists");
     }
 
-    const DDD = repo.create({ description });
+    const newDDD = repo.create({ description });
 
-    await repo.save(DDD);
-    return DDD;
+    await repo.save(newDDD);
+    return newDDD;
   }
 
   async executeFindAll(): Promise<DDDs[] | Error> {
