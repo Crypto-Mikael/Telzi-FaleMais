@@ -8,7 +8,7 @@
     "start": "node dist/server.js",
     "typeorm": "ts-node-dev node_modules/.bin/typeorm",
     "dev": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
-    "build:db": "ts-node ./src/tests/mocks/createDBScript.ts && chmod +x ./mysqlQuery.sh",
+    "build:db": "ts-node ./src/tests/mocks/createDBScript.ts && chmod +x ./mysqlQuery.sh && ./mysqlQuery.sh",
     "test": "./mysqlQuery.sh && jest"
   },
   "devDependencies": {

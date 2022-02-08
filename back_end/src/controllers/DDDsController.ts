@@ -33,7 +33,7 @@ export default class DDDsController {
   async update_DDD(req: Request, res: Response) {
     const { description } = req.body;
     const { id } = req.params;
-    
+
     const id_DDDs = Number(id);
 
     const model = new DDDsModel();
@@ -44,14 +44,14 @@ export default class DDDsController {
       const { message } = result;
       return res.status(400).json({ message });
     }
-    
-    return res.status(203).json(result);
+
+    return res.status(204).json(result);
   }
 
   async delete_DDD(req: Request, res: Response) {
     const { id } = req.params;
 
-    const id_DDDs = Number(id)
+    const id_DDDs = Number(id);
 
     const model = new DDDsModel();
 
@@ -62,6 +62,6 @@ export default class DDDsController {
       return res.status(400).json({ message });
     }
 
-    return res.status(203).json(result);
+    return res.status(204).json(result);
   }
 }
