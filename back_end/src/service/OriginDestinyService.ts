@@ -18,4 +18,12 @@ export default class OriginDestinyService {
 
     return newOriginDestiny;
   };
+
+  async serviceFindAll() {
+    const model = new OriginDestinyModel();
+    
+    const AllOriginDestiny = await model.executeFindAll();
+
+    return AllOriginDestiny;
+  }
 }

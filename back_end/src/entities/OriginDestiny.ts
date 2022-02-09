@@ -1,9 +1,4 @@
-import {
-  Entity,
-  Column,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from "typeorm";
+import { Entity, Column, OneToOne, PrimaryColumn, JoinColumn } from "typeorm";
 import DDDs from "./DDDs";
 
 @Entity("Origin_destiny")
@@ -12,14 +7,16 @@ export default class OriginDestiny {
     this.value = value;
   }
 
-  @PrimaryGeneratedColumn("increment")
+  @PrimaryColumn()
   id_origin_destiny: number;
 
-  @Column()
-  origin: number;
+  @OneToOne(() => DDDs, (ddd) => ddd.id_DDDs)
+  @JoinColumn({ name: "origin" })
+  origin: DDDs;
 
-  @Column()
-  destiny: number;
+  @OneToOne(() => DDDs, (ddd) => ddd.id_DDDs)
+  @JoinColumn({ name: "destiny" })
+  destiny: DDDs;
 
   @Column()
   value: number;

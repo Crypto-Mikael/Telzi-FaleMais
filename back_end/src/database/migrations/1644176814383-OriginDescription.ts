@@ -12,7 +12,7 @@ export class OriginDescription1644176814383 implements MigrationInterface {
             isGenerated: true,
             isUnique: true,
             generationStrategy: "increment",
-            isPrimary: false,
+            isPrimary: true,
           },
           {
             name: "origin",

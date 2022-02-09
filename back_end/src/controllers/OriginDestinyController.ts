@@ -16,4 +16,12 @@ export default class OriginDestinyController {
 
     return res.status(201).json(newOriginDestiny);
   }
+
+  async findAllOriginDestiny(_req: Request, res: Response) {
+    const service = new OriginDestinyService();
+
+    const allOriginDestiny = await service.serviceFindAll();
+
+    return res.status(200).json(allOriginDestiny);
+  }
 }
