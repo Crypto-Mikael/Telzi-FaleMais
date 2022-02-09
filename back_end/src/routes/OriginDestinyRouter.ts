@@ -4,11 +4,16 @@ import OriginDestinyValidations from "../validations/OriginDestinyValidations";
 
 const routes = Router();
 
+routes.get("/", new OriginDestinyController().findAllOriginDestiny);
 routes.post(
   "/",
   OriginDestinyValidations,
   new OriginDestinyController().createOriginDestiny
 );
-routes.get("/", new OriginDestinyController().findAllOriginDestiny);
+routes.put(
+  "/:id",
+  OriginDestinyValidations,
+  new OriginDestinyController().updateOriginDestiny
+);
 
 export default routes;

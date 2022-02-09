@@ -24,4 +24,24 @@ export default class OriginDestinyController {
 
     return res.status(200).json(allOriginDestiny);
   }
+
+  async updateOriginDestiny(req: Request, res: Response) {
+    const { id } = req.params;
+    const { origin, destiny, value  } = req.body;
+    const service = new OriginDestinyService();
+  
+    const updatedOriginDetiny = await service.serviceUpdate({
+      id,
+      origin,
+      destiny,
+      value,
+    });
+
+    if (updatedOriginDetiny instanceof Error) {
+      const { message } = updatedOriginDetiny;
+      return res.status(400).json({ message });
+    }
+
+    return res.status(201).json(updatedOriginDetiny);
+  }
 }

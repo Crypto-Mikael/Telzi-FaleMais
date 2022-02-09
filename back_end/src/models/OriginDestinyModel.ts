@@ -2,6 +2,7 @@ import { getRepository } from "typeorm";
 import OriginDestiny from "../entities/OriginDestiny";
 
 type OriginDestinyRequest = {
+  id_origin_destiny: number,
   origin: number;
   destiny: number;
   value: number;
@@ -28,5 +29,28 @@ export default class OriginDestinyModel {
       return new Error("any DDD finded");
     }
     return AllOriginDestiny;
+  }
+
+  async executeUpdate({
+    id_origin_destiny,
+    origin,
+    destiny,
+    value,
+  }) {
+    const repo = getRepository(OriginDestiny);
+    const OriginDestinyExists = await repo.findOne({ where: { origin, destiny } });
+
+    if (OriginDestinyExists) {
+      return new Error("origin destiny already finded");
+    }
+
+    const IdExists = repo.findOne({ id_origin_destiny });
+
+    if (!IdExists) {
+      return new Error("id OriginDestiny not finded");
+    }
+
+    repo.update(id_origin_destiny, { origin, destiny, value });
+    return repo.save({ id_origin_destiny, origin, destiny, value });
   }
 }
