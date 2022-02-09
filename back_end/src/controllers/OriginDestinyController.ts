@@ -30,18 +30,28 @@ export default class OriginDestinyController {
     const { origin, destiny, value  } = req.body;
     const service = new OriginDestinyService();
   
-    const updatedOriginDetiny = await service.serviceUpdate({
+    const updatedOriginDestiny = await service.serviceUpdate({
       id,
       origin,
       destiny,
       value,
     });
 
-    if (updatedOriginDetiny instanceof Error) {
-      const { message } = updatedOriginDetiny;
+    if (updatedOriginDestiny instanceof Error) {
+      const { message } = updatedOriginDestiny;
       return res.status(400).json({ message });
     }
 
-    return res.status(201).json(updatedOriginDetiny);
+    return res.status(204).json(updatedOriginDestiny);
+  }
+
+  async deleteOriginDestiny(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const service = new OriginDestinyService();
+
+    const deletedOriginDestiny = await service.serviceDelete({ id });
+
+    return res.status(204).json(deletedOriginDestiny);
   }
 }

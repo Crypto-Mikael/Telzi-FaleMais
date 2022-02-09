@@ -37,4 +37,16 @@ export default class OriginDestinyService {
 
     return updatedOriginDestiny;
   }
+
+  async serviceDelete({ id }) {
+    const model = new OriginDestinyModel();
+
+    const serializedData = {
+      id_origin_destiny: Number(id),
+    };
+
+    const deleteOriginDestiny = await model.executeDelete(serializedData);
+
+    return deleteOriginDestiny;
+  }
 }

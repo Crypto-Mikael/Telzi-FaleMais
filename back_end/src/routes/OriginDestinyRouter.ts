@@ -15,5 +15,6 @@ routes.put(
   OriginDestinyValidations,
   new OriginDestinyController().updateOriginDestiny
 );
+routes.delete("/:id", new OriginDestinyController().deleteOriginDestiny);
 
 export default routes;

@@ -31,18 +31,8 @@ export default class OriginDestinyModel {
     return AllOriginDestiny;
   }
 
-  async executeUpdate({
-    id_origin_destiny,
-    origin,
-    destiny,
-    value,
-  }) {
+  async executeUpdate({ id_origin_destiny, origin, destiny, value }) {
     const repo = getRepository(OriginDestiny);
-    const OriginDestinyExists = await repo.findOne({ where: { origin, destiny } });
-
-    if (OriginDestinyExists) {
-      return new Error("origin destiny already finded");
-    }
 
     const IdExists = repo.findOne({ id_origin_destiny });
 
@@ -53,4 +43,18 @@ export default class OriginDestinyModel {
     repo.update(id_origin_destiny, { origin, destiny, value });
     return repo.save({ id_origin_destiny, origin, destiny, value });
   }
+
+  async executeDelete({ id_origin_destiny }) {
+    const repo = getRepository(OriginDestiny);
+
+    const deletedOriginDestiny = repo.findOne({ id_origin_destiny });
+
+    if (!deletedOriginDestiny) {
+      return new Error("id OriginDestiny not finded");
+    }
+
+    repo.delete({ id_origin_destiny });
+
+    return deletedOriginDestiny;
+  };
 }
