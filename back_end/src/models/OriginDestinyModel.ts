@@ -8,10 +8,10 @@ type OriginDestinyRequest = {
 };
 
 export default class OriginDestinyModel {
-  async executeCreate({ origin, destiny, value }: OriginDestinyRequest) {
+  async executeCreate({ origin, destiny, value }) {
     const repo = getRepository(OriginDestiny);
-
-    if (await repo.find({ where: { origin, destiny, value } })) {
+    
+    if (await repo.findOne({ where: { origin, destiny } })) {
       return new Error("OriginDestiny already exists");
     }
 

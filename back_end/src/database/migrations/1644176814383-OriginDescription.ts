@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class OriginDescription1644176814383 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -10,6 +10,7 @@ export class OriginDescription1644176814383 implements MigrationInterface {
             name: "id_origin_destiny",
             type: "int",
             isGenerated: true,
+            isUnique: true,
             generationStrategy: "increment",
             isPrimary: false,
           },

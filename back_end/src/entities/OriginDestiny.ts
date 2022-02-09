@@ -1,17 +1,14 @@
 import {
   Entity,
   Column,
-  ManyToOne,
-  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import DDDs from "./DDDs";
 
-@Entity("origin_destiny")
+@Entity("Origin_destiny")
 export default class OriginDestiny {
-  constructor(origin: number, destiny: number, value: number) {
-    this.origin = origin;
-    this.destiny = destiny;
+  constructor(value: number) {
     this.value = value;
   }
 
@@ -21,10 +18,9 @@ export default class OriginDestiny {
   @Column()
   origin: number;
 
-  @ManyToOne(() => DDDs)
-  @JoinColumn({ name: "idDDDs" })
+  @Column()
   destiny: number;
 
-  @ManyToOne(() => DDDs)
+  @Column()
   value: number;
 }

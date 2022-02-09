@@ -10,6 +10,10 @@ export default class OriginDestinyService {
       value: Number(value),
     };
 
+    if (origin === destiny) {
+      return new Error("Origin can not be equal to Destiny");
+    }
+
     const newOriginDestiny = await model.executeCreate(serializedData);
 
     return newOriginDestiny;
