@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import express from "express";
 import "./database";
 import DDDsRouter from "./routes/DDDsRouter";
@@ -11,8 +10,6 @@ app.use(express.json());
 
 app.use("/DDDs", DDDsRouter);
 app.use("/OriginDestiny", OriginDestinyRouter);
-
-app.get("/", (_req: Request, res: Response) => res.send("Hello World!"));
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
 
