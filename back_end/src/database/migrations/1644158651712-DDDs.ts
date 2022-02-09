@@ -1,5 +1,5 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
-
+import { getRepository, MigrationInterface, QueryRunner, Table } from "typeorm";
+import { defaultAPI } from "../../tests/mocks/MocksDDDs";
 export class DDDs1644158651712 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
@@ -23,6 +23,7 @@ export class DDDs1644158651712 implements MigrationInterface {
             ],
           })
         );
+        await getRepository("DDDs").save(defaultAPI);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

@@ -1,4 +1,5 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, getRepository } from "typeorm";
+import { defaultAPI } from "../../tests/mocks/MocksOriginDestiny";
 
 export class OriginDescription1644176814383 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -46,6 +47,7 @@ export class OriginDescription1644176814383 implements MigrationInterface {
         ],
       })
     );
+    await getRepository("Origin_destiny").save(defaultAPI);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
