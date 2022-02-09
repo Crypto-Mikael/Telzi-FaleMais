@@ -27,4 +27,4 @@ const updatedAPI = defaultAPI.concat({
     id_DDDs: 5,
 });
 
-export { defaultAPI, addedAPI, updatedAPI };
+export default { defaultAPI, addedAPI, updatedAPI };

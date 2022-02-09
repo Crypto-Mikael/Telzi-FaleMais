@@ -10,7 +10,7 @@ const PORT = process.env.SERVER_PORT;
 app.use(express.json());
 
 app.use("/DDDs", DDDsRouter);
-app.use("/", OriginDestinyRouter);
+app.use("/OriginDestiny", OriginDestinyRouter);
 
 app.get("/", (_req: Request, res: Response) => res.send("Hello World!"));
 
