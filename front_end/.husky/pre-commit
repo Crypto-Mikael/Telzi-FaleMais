@@ -1,0 +1,31 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '🏗️👷 Testando sua aplicação, #VQV'
+
+echo 'Checando Prettier 🎨'
+npm run check-format ||
+(
+    echo '😔😟😔😟 Ta bonito isso não! 😔😟😔😟
+            Check de Prettier falhou, rode "npm run format", ou refatore o código';
+    false;
+)
+
+echo 'Checando Lint ✍️'
+npm run check-lint ||
+(
+        echo '😠😡😠😡 Não tá seguindo as regras! 😠😡😠😡
+                Check de Lint falhou, corrija os erros acima e tente seu commit novamente.'
+        false; 
+)
+
+echo 'Checando TypeScript 🔣'
+npm run check-types ||
+(
+    echo '🤡😂❌🤡 Sério que você tentou escrever isso?! 🤡😂❌🤡
+            Erro de TypeScript, corrija os erros acima e tente seu commit novamente.'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ Ai sim! Código 100%, #VQV de commit! ✅✅✅✅'
