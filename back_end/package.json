@@ -1,0 +1,39 @@
+{
+  "name": "back_end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node dist/server.js",
+    "typeorm": "ts-node-dev node_modules/.bin/typeorm",
+    "dev": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
+    "build:db": "yarn typeorm migration:run",
+    "test": "yarn typeorm schema:drop && yarn typeorm migration:run && clear && jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "jest": "^27.4.7",
+    "joi": "^17.6.0",
+    "ts-jest": "^27.1.3",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@types/mocha": "^9.1.0",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
+  }
+}
