@@ -130,10 +130,10 @@ function SelectInput({ OriginsAndDestinys }: Prop) {
         </Select>
       </TableCell>
       <TableCell>
-        <div>{`$ ${RenderPlans(true)}`}</div>
+        <div>{`R$ ${RenderPlans(true)}`}</div>
       </TableCell>
       <TableCell>
-        <div>{`$ ${RenderPlans(false)}`}</div>
+        <div>{`R$ ${RenderPlans(false)}`}</div>
       </TableCell>
     </TableRow>
   );

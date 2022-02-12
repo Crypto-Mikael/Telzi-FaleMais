@@ -24,7 +24,7 @@ function TableBodyComponent({ OriginsAndDestinys, loading }: Prop) {
           <TableRow key={row.id_origin_destiny}>
             <TableCell>{row.origin.description}</TableCell>
             <TableCell>{row.destiny.description}</TableCell>
-            <TableCell>{row.value}</TableCell>
+            <TableCell>{`R$ ${row.value}`}</TableCell>
           </TableRow>
         ))
       ) : (

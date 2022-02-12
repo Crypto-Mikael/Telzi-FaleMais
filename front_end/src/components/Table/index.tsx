@@ -50,7 +50,7 @@ function DDDTable() {
               <TableRow>
                 <TableCell>DDD | Origem</TableCell>
                 <TableCell>DDD | Destino</TableCell>
-                <TableCell>valor/min</TableCell>
+                <TableCell>Valor/min</TableCell>
               </TableRow>
             </TableHead>
             <TableBodyComponent
