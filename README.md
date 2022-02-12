@@ -1,6 +1,6 @@
 # Boas vindas ao Repositorio do Projeto Telzi-FaleMais!
 
-Esse projeto é uma pagina web básica de calculo de Origem e Destino de uma empresa de telefonia, especializada em chamadas de longa distância nacional, com o preço sendo pré-definido em uma lista com os códigos DDDs o site deixa a disposição do usuario selecionar os campos para faz o calculo.
+Esse projeto é uma página web básica de calculo de Origem e Destino de uma empresa de telefonia, especializada em chamadas de longa distância nacional, com o preço sendo pré-definido em uma lista com os códigos DDDs o site deixa a disposição do usuário selecionar os campos para faz o calculo.
 
 # Sumário
 
@@ -302,7 +302,7 @@ npm start
 
 ## Agradecimentos
 
-Agradeço imensamente pela <a href="https://www.loldesign.com.br/">LolDesign</a> pela iniciativa de começar esse projeto e pela toda equipe da <a href="https://www.betrybe.com/">Trybe</a> que vem me formando como um profissonal altamente competente.
+Agradeço imensamente pela <a href="https://www.loldesign.com.br/">LolDesign</a> pela iniciativa de começar esse projeto e por toda a equipe da <a href="https://www.betrybe.com/">Trybe</a> que vem me formando como um profissonal altamente competente.
 
 ## Encontre-me
 [![Linkding](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/miguel-campos-6b7243203/)
