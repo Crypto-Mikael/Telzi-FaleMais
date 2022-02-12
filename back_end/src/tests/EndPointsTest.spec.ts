@@ -40,10 +40,10 @@ describe("PUT / DDDs - Update DDD", () => {
     expect(responseBefore.statusCode).toEqual(200);
 
     const updateResponse = await request(server)
-      .put(`/DDDs/${mock1.updatedAPI[mock1.updatedAPI.length - 1].id_DDDs}`)
+      .put(`/DDDs/5`)
       .send({ description: "020" });
 
-    expect(updateResponse.statusCode).toEqual(204);
+    expect(updateResponse.statusCode).toEqual(200);
 
     const responseAfter = await request(server).get("/DDDs");
     expect(responseAfter.statusCode).toEqual(200);
@@ -61,7 +61,7 @@ describe("DELETE / DDDs - Delete DDD", () => {
       `/DDDs/${mock1.updatedAPI[mock1.updatedAPI.length - 1].id_DDDs}`
     );
 
-    expect(deletedResponse.statusCode).toEqual(204);
+    expect(deletedResponse.statusCode).toEqual(200);
 
     const responseAfter = await request(server).get("/DDDs");
     expect(responseAfter.statusCode).toEqual(200);
@@ -114,7 +114,7 @@ describe("PUT / OriginDestiny - Update OriginDestiny", () => {
         value: 1.9,
       });
 
-    expect(updateResponse.statusCode).toEqual(204);
+    expect(updateResponse.statusCode).toEqual(200);
 
     const responseAfter = await request(server).get("/OriginDestiny");
     expect(responseAfter.statusCode).toEqual(200);
@@ -134,7 +134,7 @@ describe("DELETE / OriginDestiny - Delete OriginDestiny", () => {
       }`
     );
 
-    expect(deletedResponse.statusCode).toEqual(204);
+    expect(deletedResponse.statusCode).toEqual(200);
 
     const responseAfter = await request(server).get("/OriginDestiny");
     expect(responseAfter.statusCode).toEqual(200);  
