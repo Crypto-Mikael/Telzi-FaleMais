@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import {
   Paper,
   TableCell,
@@ -5,21 +6,26 @@ import {
   TableHead,
   TableRow,
   Table,
-  CircularProgress,
-  TableBody,
 } from "@mui/material";
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Box } from "@mui/system";
+import TableBodyComponent from "./TableBodyComponent";
+import SelectInput from "./SelectInput";
 import TableRowData from "./types";
 
 function DDDTable() {
-  const [api, setApi] = useState<TableRowData[]>([]);
+  const [OriginsAndDestinys, setOriginsAndDestinys] = useState<TableRowData[]>(
+    []
+  );
   const [loading, setLoading] = useState(true);
 
-  const getApiData = async () => {
+  const getOriginDestinyData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3001/OriginDestiny");
-      setApi(data);
+      const response = await axios.get("http://localhost:3001/OriginDestiny");
+      const { data } = response;
+      setOriginsAndDestinys(data);
       setLoading(false);
       return true;
     } catch (error) {
@@ -28,35 +34,48 @@ function DDDTable() {
   };
 
   useEffect(() => {
-    getApiData();
-  }, [api]);
+    getOriginDestinyData();
+  }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Origem</TableCell>
-            <TableCell>Destino</TableCell>
-            <TableCell>Sem plano</TableCell>
-            <TableCell>Com plano</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {!loading ? (
-            api.map((row) => (
-              <TableRow key={row.id_origin_destiny}>
-                <TableCell>{row.origin.description}</TableCell>
-                <TableCell>{row.destiny.description}</TableCell>
-                <TableCell>{row.value}</TableCell>
+    <Box sx={{ height: "100vh", width: "100vw" }}>
+      <Box sx={{ m: 10 }}>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead
+              sx={{
+                backgroundColor: "primary.light",
+              }}
+            >
+              <TableRow>
+                <TableCell>DDD | Origem</TableCell>
+                <TableCell>DDD | Destino</TableCell>
+                <TableCell>valor/min</TableCell>
               </TableRow>
-            ))
-          ) : (
-            <CircularProgress />
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+            </TableHead>
+            <TableBodyComponent
+              OriginsAndDestinys={OriginsAndDestinys}
+              loading={loading}
+            />
+          </Table>
+        </TableContainer>
+        <TableContainer component={Paper} sx={{ marginTop: 5 }}>
+          <Table>
+            <TableHead sx={{ backgroundColor: "primary.light" }}>
+              <TableRow>
+                <TableCell>DDD | Origem</TableCell>
+                <TableCell>DDD | Destino</TableCell>
+                <TableCell>Tempo/min</TableCell>
+                <TableCell>Plano FaleMais</TableCell>
+                <TableCell>Com FaleMais</TableCell>
+                <TableCell>Sem FaleMais</TableCell>
+              </TableRow>
+            </TableHead>
+            <SelectInput OriginsAndDestinys={OriginsAndDestinys} />
+          </Table>
+        </TableContainer>
+      </Box>
+    </Box>
   );
 }
 
