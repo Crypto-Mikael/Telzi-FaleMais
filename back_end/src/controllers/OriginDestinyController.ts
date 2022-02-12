@@ -42,7 +42,7 @@ export default class OriginDestinyController {
       return res.status(400).json({ message });
     }
 
-    return res.status(204).json(updatedOriginDestiny);
+    return res.status(200).json(updatedOriginDestiny);
   }
 
   async deleteOriginDestiny(req: Request, res: Response) {
@@ -52,6 +52,11 @@ export default class OriginDestinyController {
 
     const deletedOriginDestiny = await service.serviceDelete({ id });
 
-    return res.status(204).json(deletedOriginDestiny);
+     if (deletedOriginDestiny instanceof Error) {
+       const { message } = deletedOriginDestiny;
+       return res.status(400).json({ message });
+     }
+     
+    return res.status(200).json(deletedOriginDestiny);
   }
 }

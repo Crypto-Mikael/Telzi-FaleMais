@@ -47,8 +47,8 @@ export default class OriginDestinyModel {
   async executeDelete({ id_origin_destiny }) {
     const repo = getRepository(OriginDestiny);
 
-    const deletedOriginDestiny = repo.findOne({ id_origin_destiny });
-
+    const deletedOriginDestiny = await repo.findOne({ id_origin_destiny });
+    
     if (!deletedOriginDestiny) {
       return new Error("id OriginDestiny not finded");
     }

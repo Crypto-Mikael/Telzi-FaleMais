@@ -39,13 +39,13 @@ export default class DDDsController {
     const model = new DDDsModel();
 
     const result = await model.executeUpdateDDD({ description, id_DDDs });
-
+    
     if (result instanceof Error) {
       const { message } = result;
       return res.status(400).json({ message });
     }
 
-    return res.status(204).json(result);
+    return res.status(200).json(result);
   }
 
   async delete_DDD(req: Request, res: Response) {
@@ -62,6 +62,6 @@ export default class DDDsController {
       return res.status(400).json({ message });
     }
 
-    return res.status(204).json(result);
+    return res.status(200).json(result);
   }
 }
