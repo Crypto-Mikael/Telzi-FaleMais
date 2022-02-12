@@ -7,6 +7,7 @@ Esse projeto é uma pagina web básica de calculo de Origem e Destino de uma emp
 - [O que foi desenvolvido](#o-que-foi-desenvolvido)
 - [Como executar](#como-executar)
 - [Endpoints do projeto](#endpoints-do-projeto)
+- [Front-end do projeto](#front-end-do-projeto)
 - [Agradecimentos](#agradecimentos)
 - [Encontre-me](#encontre-me)
 
@@ -30,6 +31,66 @@ Foi arquitetado, uma API de CRUD de DDDs com Relações de Origem e Destino com 
 Foi desenvolvido alguns endpoints (seguindo o princípios do REST) que estarão conectados ao seu banco de dados local.
 
 ![english_database](https://user-images.githubusercontent.com/80548535/153692142-e8a7a89d-93b0-40d8-8a33-0507ae261326.png)
+
+## Como executar
+
+1 - Crie um arquivo .env utilizando o .env.example como base.
+
+2 - Dentro da pasta do projeto abra um terminal instale as dependecias, crie o banco e estancie o back-end.
+
+#### Yarn
+
+```bash
+cd back_end/
+yarn install
+yarn build:db
+yarn dev
+```
+
+#### NPM
+
+```bash
+cd back_end/
+npm install
+npm build:db
+npm run dev
+```
+
+2.5 - Se você quiser rodar os testes de back-end eles droparam a database.
+
+#### Yarn
+
+```bash
+cd back_end/
+yarn install
+yarn test
+```
+
+#### NPM
+
+```bash
+cd back_end/
+npm install
+npm test
+```
+
+3 - Dentro da pasta do projeto abra um terminal instale as dependecias e estancie o front-end.
+
+#### Yarn
+
+```bash
+cd front-end/
+yarn install
+yarn start
+```
+
+#### NPM
+
+```bash
+cd front-end/
+npm install
+npm start
+```
 
 ## Endpoints do projeto
 
@@ -235,9 +296,13 @@ Foi desenvolvido alguns endpoints (seguindo o princípios do REST) que estarão 
 }
 ```
 
+## Front-end do projeto
+
+![DDDS](https://user-images.githubusercontent.com/80548535/153694667-485a91b3-9306-4057-8768-69a8b76fc2aa.gif)
+
 ## Agradecimentos
 
-Agradeço imensamente pela <a href="https://www.creativecode.art.br/">CreativeCode</a> pela iniciativa de começar esse projeto e pela toda equipe da <a href="https://www.betrybe.com/">Trybe</a> que vem me formando como um profissonal altamente competente.
+Agradeço imensamente pela <a href="https://www.loldesign.com.br/">LolDesign</a> pela iniciativa de começar esse projeto e pela toda equipe da <a href="https://www.betrybe.com/">Trybe</a> que vem me formando como um profissonal altamente competente.
 
 ## Encontre-me
 [![Linkding](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/miguel-campos-6b7243203/)
